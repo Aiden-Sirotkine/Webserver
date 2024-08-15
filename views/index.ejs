@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+            <!--This series of divs creates the header of the website so the user can move around freely-->
+        <div class="header"> 
+            <form class="subdir" action="/home" method="GET"> 
+                <input class=subdirlink type="submit" value="Home"> 
+            </form>
+            <form class="subdir" action="/sensor" method="POST"> 
+                <input class=subdirlink type="submit" value="Sensor"> 
+            </form>
+            <form class="subdir" action="/about" method="GET"> 
+                <input class=subdirlink type="submit" value="About"> 
+            </form>
+            <form class="subdir" action="/contact" method="GET"> 
+                <input class=subdirlink type="submit" value="Contact"> 
+            </form>
+            <!-- <div class="subdir" id="home"><a class=subdirlink href="index.html">Home</a> </div> -->
+            <!-- <div class="subdir" id="about"><a class=subdirlink href = "about.html" >About</a></div> 
+            <div class="subdir" id="contact"><a class=subdirlink href = "contact.html" >Contact</a></div> -->
+            <!-- Just for old time-y documentation purposes -->
+        </div>
+
+        <div id="behindHeader"></div>
+
+        <div class="Title">Aiden Sirotkine</div>
+
+        <div id="behindHeader"></div>
+
+        <!--decorative picture-->
+        <!-- <div id="picture">
+            <img class="homepicture" src="img/BusinessCard.png" alt="alt"/>
+        </div> -->
+
+        <p id="emailp"> This is my silly website. Put numbers in the input and they will show in the box </p>
+        
+        <div id="holdStuff">
+            <form id="dataBox" action="/something" method="GET">
+                <label>Send Data:</label>
+                <input id="textbox" type="text" name="data"><br><br>
+                <input id="textbox" type="text" name="data2"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+
+            <div class="graph">
+                Received Data: <br>
+                <% for (let i = 0; i < numbers.length; i++) { %>
+                <%= numbers[i] %> 
+                <% }; %>
+            </div>
+        </div>
+        
+        <!--footer-->
+        <div class="footer">
+            <p class="footertext">Aiden Sirotkine <br>
+                <!-- aidensiro@gmail.com  -->
+                <br>Copywrite 2022 
+            </p>
+        </div>
+    </body>
+</html>

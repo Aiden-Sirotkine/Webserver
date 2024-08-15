@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<html>
+
+<head>
+    <title>About</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!--This series of divs creates the header of the website so the user can move around freely-->
+    <div class="header">
+        <form class="subdir" action="/home" method="GET"> 
+            <input class=subdirlink type="submit" value="Home"> 
+        </form>
+        <form class="subdir" action="/sensor" method="POST"> 
+            <input class=subdirlink type="submit" value="Sensor"> 
+        </form>
+        <form class="subdir" action="/about" method="GET"> 
+            <input class=subdirlink type="submit" value="About"> 
+        </form>
+        <form class="subdir" action="/contact" method="GET"> 
+            <input class=subdirlink type="submit" value="Contact"> 
+        </form>
+    </div>
+
+    <div id="behindHeader"></div>
+
+    <!--This section will have a bunch of text describing me and my accomplishments for the user-->
+    <div class="Title">About</div>
+    <div id="aboutTextDiv">
+        <div id="aboutText">
+            
+            Sample Text
+
+        </div>
+    </div>
+
+    <!--Here are comments (hopefully positive) that have been said about me so that the user knows what they're in for-->
+    <div id="reviewblock">
+        <p class="title"><b>Reviews</b></p>
+        <div id="reviews">
+            <p id="review1">
+            "absolute nerd but maybe smart sometimes"
+            <br> -Estha Von Reich, Ridgeview Math Club   
+            </p>
+            <p id="review2">
+            "My favorite chess coach"
+            <br> -Anonymous Elementary Chess Student
+            </p>
+        </div>
+    </div>
+
+    <!--footer-->
+    <div class="footer">
+        <p class="footertext">Aiden Sirotkine <br>
+            <!-- aidensiro@gmail.com  -->
+            <br>Copywrite 2022 
+        </p>
+    </div>
+</body>
+</html>

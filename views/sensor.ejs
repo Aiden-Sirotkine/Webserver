@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Sensor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+
+             <!--This series of divs creates the header of the website so the user can move around freely-->
+             <div class="header">
+                <form class="subdir" action="/home" method="GET"> 
+                    <input class=subdirlink type="submit" value="Home"> 
+                </form>
+                <form class="subdir" action="/sensor" method="POST"> 
+                    <input class=subdirlink type="submit" value="Sensor"> 
+                </form>
+                <form class="subdir"  action="/about" method="GET"> 
+                    <input class=subdirlink type="submit" value="About"> 
+                </form>
+                <form class="subdir" action="/contact" method="GET"> 
+                    <input class=subdirlink type="submit" value="Contact"> 
+                </form>
+            </div>
+
+            <div id="behindHeader"></div>
+
+        <div class="Title">Sensor Data</div>
+
+        <!-- <div id="smallTitles"> 
+            Temperature
+        </div> -->
+
+        <div id="behindHeader"></div>
+        <p id="label"> Current Temp: 
+            <% len = temps.length - 1 %>
+            <%= temps[len] %> 
+            C</p>
+
+
+        <div id="SensorBox">
+            <canvas class="sensorGraph" id="tempGraph">
+            </canvas>
+            <script>
+                let numDataPoints = 100;
+                let minutesPerHour = 60;
+                let minutesPerMeasurement = 5;
+                let labels = new Array(numDataPoints).fill('');
+                let temps = [<%= temps %>];
+
+                for (let i = 0; i < labels.length; i++) {
+                    let time = new Date(Date.now() - (numDataPoints - i) * 1000 * minutesPerMeasurement * minutesPerHour);
+                    let dateString = time.toString().substring(16, 21);
+                    labels[i] = dateString;
+                }
+
+                const data = {
+                    labels: labels,
+                    datasets: 
+                    [{
+                        label: 'Temperature (Celsius)',
+                        data: temps,
+                        drawActiveElementsOnTop: false,
+                        xAxisID: "time",
+                        yAxisID: "Temperature (C)"
+                    }]
+                };
+
+                const config = {
+                    type: 'line',
+                    data: data,
+                };
+
+                let tempGraph = document.getElementById('tempGraph').getContext('2d');
+                let tempChart = new Chart(tempGraph, config);
+            </script>
+        </div>
+
+        <div id="behindHeader"></div>
+
+        <!-- <div id="smallTitles"> 
+            Humidity
+        </div> -->
+        <p id="label"> Current Humidity: 
+            <% len = humidities.length - 1 %>
+            <%= humidities[len] %>
+            %</p>
+
+
+        <div id="SensorBox">
+            <canvas class="sensorGraph" id="humidityGraph">
+            </canvas>
+            <script>
+                labels = new Array(numDataPoints).fill('');
+                let humidities = [<%= humidities %>];
+
+                for (let i = 0; i < labels.length; i++) {
+                    let time = new Date(Date.now() - (numDataPoints - i) * 1000 * minutesPerMeasurement * minutesPerHour);
+                    let dateString = time.toString().substring(16, 21);
+                    labels[i] = dateString;
+                }
+
+                const humidityData = {
+                    labels: labels,
+                    datasets: 
+                    [{
+                        data: humidities,
+                    }]
+                };
+
+                const humidityConfig = {
+                    type: 'line',
+                    data: humidityData,
+                };
+
+                let humidityGraph = document.getElementById('humidityGraph').getContext('2d');
+                let humidityChart = new Chart(humidityGraph, humidityConfig);
+            </script>
+        </div>
+
+        
+        <!--footer-->
+        <div class="filler"></div>
+        <div class="footer">
+            <p class="footertext">Aiden Sirotkine <br>
+                <!-- aidensiro@gmail.com  -->
+                <br>Copywrite 2022 
+            </p>
+        </div>
+    </body>
+</html>

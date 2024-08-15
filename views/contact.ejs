@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+
+    <head>
+        <title>Contact</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    
+        <!--This series of divs creates the header of the website so the user can move around freely-->
+        <div class="header"> 
+            <form class="subdir" action="/home" method="GET"> 
+                <input class=subdirlink type="submit" value="Home"> 
+            </form>
+            <form class="subdir" action="/sensor" method="POST"> 
+                <input class=subdirlink type="submit" value="Sensor"> 
+            </form>
+            <form class="subdir" action="/about" method="GET"> 
+                <input class=subdirlink type="submit" value="About"> 
+            </form>
+            <form class="subdir" action="/contact" method="GET"> 
+                <input class=subdirlink type="submit" value="Contact"> 
+            </form>
+        </div>
+
+        <div id="behindHeader"></div>
+        <div class="Title">Contact</div>
+        <p id="emailp">
+            <!-- Email directly at aidensiro@gmail.com or send a message -->
+            This page does nothing
+        </p>
+
+        <form action="home" method="POST">
+            <label for="fname">Name:</label>
+            <input type="text" id="fname" name="fname"><br><br>
+            <label for="femail">Email Address:</label>
+            <input type="text" id="femail" name="femail"><br><br>
+            <p>Content:</p>
+            <textarea id="content" name='fcontent'></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <div class="filler"></div>
+        <div class="filler"></div>
+        <div class="footer">
+            <p class="footertext">Aiden Sirotkine <br>
+                <!-- aidensiro@gmail.com  -->
+                <br>Copywrite 2022 
+            </p>
+        </div>
+        
+        
+        <!--this script makes the content text area auto resize.-->
+        <script>
+            const tx = document.getElementsByTagName("textarea");
+            for (let i = 0; i < tx.length; i++) {
+                tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
+                tx[i].addEventListener("input", OnInput, false);
+            }
+
+            function OnInput() {
+                this.style.height = "auto";
+                this.style.height = (this.scrollHeight) + "px";
+            }
+
+        </script>
+
+        <!--this php script will email whatever the user writes to me-->
+        <?php
+        $name= $_POST['fname'];
+        $emailaddress= $_POST['femail'];
+        $content= $_POST['fontent'];
+        echo "Data Processed";
+        ?>
+    
+
+
+
